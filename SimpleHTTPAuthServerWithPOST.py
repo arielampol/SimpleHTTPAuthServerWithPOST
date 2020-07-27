@@ -76,7 +76,7 @@ class SimpleHTTPAuthHandler(SimpleHTTPRequestHandler):
 	                str(self.path), str(self.headers), post_data.decode('utf-8'))
 
 	        self._set_response()
-	        self.wfile.write("POST request for {}".format(self.path).encode('utf-8'))
+	        self.wfile.write("POST request for {} with data {}".format(self.path, post_data.decode('utf-8')).encode('utf-8'))
         else:
             self.do_authhead()
             self.wfile.write(self.headers.getheader('Authorization'))
